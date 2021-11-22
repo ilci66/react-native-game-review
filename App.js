@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Home from './screens/home';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigator from './routes/homeStack'
+
 
 const getFonts = () => Font.loadAsync({
   'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
@@ -13,7 +16,12 @@ export default function App() {
   // return(<Home />)
   if (fontsLoaded) {
     return (
-      <Home />
+      <NavigationContainer>
+        
+        <Navigator />
+      </NavigationContainer>
+      // <Navigator />
+      // <Home />
     );
   } 
   // return (<Home />)
