@@ -10,6 +10,7 @@ function MyStack() {
   
   return (
       <Stack.Navigator initialRouteName="Home"> 
+        {/* The name property apppers at the top like the title in html head */}
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
