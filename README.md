@@ -1,0 +1,1 @@
+* Navigation shown in the tutorial is kinda dated, had to read the docs a for a while, interesting stuff
