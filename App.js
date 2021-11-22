@@ -1,33 +1,31 @@
 import React, { useState } from 'react';
-import * as Font from 'expo-font'
 import Home from './screens/home';
-// this runs when the app is loading in when given a function it runs that function as well
-// so If for example my text uses a font, fonts will load before the app 
-import { AppLoading } from 'expo';
+import * as Font from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
-
-const getFonts = () => {
-  return Font.loadAsync({
-    'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
-    'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf')
-  })
-}
+const getFonts = () => Font.loadAsync({
+  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
+  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf'),
+});
 
 export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false)
-  
-  if(fontsLoaded){
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+  // return(<Home />)
+  if (fontsLoaded) {
     return (
       <Home />
     );
-  }else{
-    return(
+  } 
+  // return (<Home />)
+  else {
+    return (
+      // <Home />
       <AppLoading 
-        //starts downloading here 
-        startAsync={getFonts}
-        // what to do on finish
-        onFinish={() => setFontsLoaded(true)}
+        startAsync={getFonts} 
+        onFinish={() => setFontsLoaded(true)} 
+        onError={console.warn}
       />
     )
   }
+
 }
