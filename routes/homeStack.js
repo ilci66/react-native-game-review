@@ -1,22 +1,18 @@
-// import { createStackNavigator } from 'react-navigation-stack';
-// import { createAppContainer } from '@react-navigation/native'
+import React from 'react';
 import Home from '../screens/home';
 import About from '../screens/about';
 import ReviewDetails from '../screens/reviewDetails';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 function MyStack() {
   return (
-    // <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Home"> 
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="About" component={About} />
         <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
       </Stack.Navigator>
-    // </NavigationContainer>
   );
 }
 

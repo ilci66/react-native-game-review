@@ -3,7 +3,8 @@ import Home from './screens/home';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import { NavigationContainer } from '@react-navigation/native';
-import Navigator from './routes/homeStack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MyStack from './routes/homeStack'
 
 
 const getFonts = () => Font.loadAsync({
@@ -13,21 +14,15 @@ const getFonts = () => Font.loadAsync({
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  // return(<Home />)
   if (fontsLoaded) {
     return (
       <NavigationContainer>
-        
-        <Navigator />
+        <MyStack />
       </NavigationContainer>
-      // <Navigator />
-      // <Home />
     );
   } 
-  // return (<Home />)
   else {
     return (
-      // <Home />
       <AppLoading 
         startAsync={getFonts} 
         onFinish={() => setFontsLoaded(true)} 
