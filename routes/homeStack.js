@@ -9,11 +9,35 @@ const Stack = createNativeStackNavigator();
 function MyStack() {
   
   return (
-      <Stack.Navigator initialRouteName="Home"> 
+      <Stack.Navigator initialRouteName="Home" 
+      // This applies to all 
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      > 
+      
         {/* The name property apppers at the top like the title in html head */}
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="ReviewDetails" component={ReviewDetails} />
+        <Stack.Screen 
+          name="Home" 
+          component={Home}
+          options={{title: 'Games',}} 
+          />
+        <Stack.Screen 
+          name="About" 
+          component={About} 
+          options={{title: 'About',}}
+        />
+        <Stack.Screen 
+          name="ReviewDetails" 
+          component={ReviewDetails} 
+          options={{title: 'Review Details',}}
+        />
       </Stack.Navigator>
   );
 }
